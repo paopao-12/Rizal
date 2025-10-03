@@ -173,19 +173,44 @@
       text-decoration:underline;
     }
 
-    /* Themes */
-    .theme-blue {
-      --cream:#e6f0ff; --sepia:#cfdfff; --dark:#1b1b2f; --muted:#4a5d7a; --accent:#2e5aac;
-    }
-    .theme-green {
-      --cream:#e8f5e9; --sepia:#c8e6c9; --dark:#1b2e1b; --muted:#3c553c; --accent:#2e7d32;
-    }
-    .theme-minimal {
-      --cream:#ffffff; --sepia:#f2f2f2; --dark:#111; --muted:#555; --accent:#000;
-    }
+    /* Default (sepia/cream) */
+.theme-default {
+  --cream:#f7efe0;
+  --sepia:#efe1cf;
+  --dark:#2b2b2b;
+  --muted:#6b5f4b;
+  --accent:#7a5a3f;
+}
+
+/* Blue theme */
+.theme-blue {
+  --cream:#e6f0fa;
+  --sepia:#d0e1f9;
+  --dark:#1b2a49;
+  --muted:#3b4a67;
+  --accent:#2a72d4;
+}
+
+/* Green theme */
+.theme-green {
+  --cream:#e9f7ef;
+  --sepia:#d4efdf;
+  --dark:#145a32;
+  --muted:#27ae60;
+  --accent:#1e8449;
+}
+
+/* Minimal (black & white) */
+.theme-minimal {
+  --cream:#ffffff;
+  --sepia:#f8f9fa;
+  --dark:#000000;
+  --muted:#444444;
+  --accent:#222222;
+}
   </style>
 </head>
-<body>
+<body class = "theme-default">
 
   <header>
     <div class ="logo">Museum of Rizal</div>
@@ -436,14 +461,15 @@
       modalDesc.textContent="Welcome to the guided tour! Click on the panels in the Timeline, Influences, Character, Struggles, and Legacy sections to view more information. Each click will open a panel with details and images. In the future, this will include audio narration.";
     });
 
-    // Theme switcher
-    const themes=["","theme-blue","theme-green","theme-minimal"];
-    let currentTheme=0;
-    document.getElementById('themeBtn').addEventListener('click',()=>{
-      document.body.classList.remove(themes[currentTheme]);
-      currentTheme=(currentTheme+1)%themes.length;
-      document.body.classList.add(themes[currentTheme]);
-    });
+    const themes=["theme-default","theme-blue","theme-green","theme-minimal"];
+let currentTheme=0;
+
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  document.body.classList.remove(themes[currentTheme]);
+  currentTheme=(currentTheme+1)%themes.length;
+  document.body.classList.add(themes[currentTheme]);
+});
+
   </script>
 </body>
 </html>
